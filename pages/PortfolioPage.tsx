@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import { ImageWithFallback } from "../components/figma/ImageWithFallback";
 // import { unsplash_tool } from "unsplash";
 
-export function PortfolioPage() {
+export default function PortfolioPage() {
   const portfolioItems = [
     {
       id: 1,

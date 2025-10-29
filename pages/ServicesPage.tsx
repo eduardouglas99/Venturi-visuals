@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import { ImageWithFallback } from "../components/figma/ImageWithFallback";
 
-export function ServicesPage() {
+export default function ServicesPage() {
   const mainServices = [
     {
       title: "Filmagem Cinematográfica",

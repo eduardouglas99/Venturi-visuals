@@ -4,7 +4,7 @@ import { HorizontalShowcase } from "../components/HorizontalShowcase";
 import { AboutSection } from "../components/AboutSection";
 import { ContactCTA } from "../components/ContactCTA";
 
-export function HomePage() {
+export default function HomePage() {
   return (
     <>
       <HeroCinematic />

@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import { ImageWithFallback } from "../components/figma/ImageWithFallback";
 import Counter from "@/app/utils/AnimatedCounter";
 
-export function AboutPage() {
+export default function AboutPage() {
   const stats = [
     { number: "150", label: "Projetos Entregues", suffix: "+" },
     { number: "50", label: "Clientes Premium", suffix: "+" },
