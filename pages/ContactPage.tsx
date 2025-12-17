@@ -14,11 +14,24 @@ export default function ContactPage() {
     timeline: ''
   });
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value
-    });
+  const [phoneError, setPhoneError] = useState(false);
+
+  const handleInputChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
+  ) => {
+    const { name, value } = e.target;
+
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }));
+
+    const isValidPhone = (phone: string) =>
+    /^\+?[0-9\s()-]{7,20}$/.test(phone);
+
+    if (name === "phone") {
+      setPhoneError(value.length > 0 && !isValidPhone(value));
+    }
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -37,7 +50,7 @@ export default function ContactPage() {
         message: formData.message,
       }),
     })
-    
+
     setFormData({
       name: '',
       email: '',
@@ -180,14 +193,21 @@ export default function ContactPage() {
 
                 <div>
                   <label className="block text-sm text-gray-600 mb-2">Telefone</label>
-                  <input
-                    type="tel"
-                    name="phone"
-                    value={formData.phone}
-                    onChange={handleInputChange}
-                    className="w-full px-4 py-3 bg-white rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-black/10"
-                    required
-                  />
+                    <input
+                      type="tel"
+                      name="phone"
+                      placeholder="+55 11 91234 5678"
+                      value={formData.phone}
+                      onChange={handleInputChange}
+                      className={`w-full px-4 py-3 bg-white rounded-xl border 
+                        ${phoneError ? "border-red-500" : "border-gray-200"}`}
+                      required
+                    />
+                    {phoneError && (
+                      <p className="text-sm text-red-500 mt-1">
+                        Telefone inválido. Use o formato internacional.
+                      </p>
+                    )}
                 </div>
 
                 <div>
