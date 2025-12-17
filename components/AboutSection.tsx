@@ -28,13 +28,13 @@ export function AboutSection() {
               viewport={{ once: true }}
             >
               <span className="text-white/60 text-sm tracking-[0.3em] uppercase">
-                About Venturi Visuals
+                Sobre a Venturi Visuals
               </span>
               <h2 className="text-5xl md:text-6xl font-light tracking-tight mt-4 mb-8">
-                REDEFINING
+                REDEFININDO
                 <br />
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-500">
-                  LUXURY MARKETING
+                  O MARKETING DE LUXO
                 </span>
               </h2>
             </motion.div>
@@ -47,14 +47,11 @@ export function AboutSection() {
               className="space-y-6 text-lg text-white/80 leading-relaxed"
             >
               <p>
-                We are a boutique creative studio specializing in premium real estate cinematography. 
-                Our approach combines architectural storytelling with cinematic excellence to create 
-                visual narratives that transcend traditional property marketing.
+                Somos um estúdio criativo especializado em cinematografia imobiliária de alto padrão.
+                Nossa abordagem combina narrativa arquitetônica com excelência cinematográfica para criar histórias visuais que transcendem o marketing imobiliário tradicional.
               </p>
               <p>
-                Each project is meticulously crafted to capture not just the physical space, but the 
-                lifestyle and emotional connection that defines luxury living. We work exclusively with 
-                high-end properties, ensuring every frame reflects the sophistication our clients expect.
+                Cada projeto é meticulosamente elaborado para capturar não apenas o espaço físico, mas também o estilo de vida e a conexão emocional que definem a vida de luxo. Trabalhamos exclusivamente com imóveis de alto padrão, garantindo que cada fotograma reflita a sofisticação que nossos clientes esperam.
               </p>
             </motion.div>
 
@@ -67,19 +64,19 @@ export function AboutSection() {
             >
               <div>
                 <div className="text-3xl font-light mb-2">150+</div>
-                <div className="text-white/60 text-sm tracking-wider uppercase">Properties Filmed</div>
+                <div className="text-white/60 text-sm tracking-wider uppercase">Propriedades Filmadas</div>
               </div>
               <div>
-                <div className="text-3xl font-light mb-2">$2.5B+</div>
-                <div className="text-white/60 text-sm tracking-wider uppercase">Total Property Value</div>
+                <div className="text-3xl font-light mb-2">100+</div>
+                <div className="text-white/60 text-sm tracking-wider uppercase">Projetos Criativos</div>
               </div>
               <div>
-                <div className="text-3xl font-light mb-2">25+</div>
-                <div className="text-white/60 text-sm tracking-wider uppercase">Award Recognitions</div>
+                <div className="text-3xl font-light mb-2">7+</div>
+                <div className="text-white/60 text-sm tracking-wider uppercase">Anos de Atuação</div>
               </div>
               <div>
                 <div className="text-3xl font-light mb-2">5★</div>
-                <div className="text-white/60 text-sm tracking-wider uppercase">Client Satisfaction</div>
+                <div className="text-white/60 text-sm tracking-wider uppercase">Satisfação do Cliente</div>
               </div>
             </motion.div>
           </motion.div>
@@ -91,8 +88,9 @@ export function AboutSection() {
             viewport={{ once: true }}
             className="relative"
           >
-            <div className="aspect-[4/5] bg-gradient-to-br from-gray-900 to-black rounded-lg overflow-hidden">
+            <div className="aspect-[4/5] bg-gradient-to-br from-gray-900 to-black rounded-lg overflow-hidden relative">
               <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent"></div>
+
               <div className="absolute inset-0 flex items-center justify-center">
                 <div className="text-center">
                   <motion.div
@@ -102,9 +100,15 @@ export function AboutSection() {
                   >
                     <div className="w-12 h-12 bg-white/10 rounded-full"></div>
                   </motion.div>
-                  <p className="text-white/60 text-sm tracking-wider uppercase">
-                    Cinematic Excellence
-                  </p>
+
+                  <video
+                    src="/videos/cutrim-maramar.mp4"
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    className="w-full h-full object-cover rounded-lg"
+                  />
                 </div>
               </div>
             </div>

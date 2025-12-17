@@ -58,8 +58,7 @@ export function HeroCinematic() {
             transition={{ delay: 1.5, duration: 0.8 }}
             className="text-xl md:text-2xl text-white/80 font-light tracking-wide max-w-3xl mx-auto leading-relaxed"
           >
-            Transforming premium real estate into visual narratives 
-            that transcend traditional marketing boundaries
+            Transformando imóveis de luxo em narrativas visuais que transcendem as fronteiras tradicionais do marketing.
           </motion.p>
 
           <motion.div
@@ -75,7 +74,7 @@ export function HeroCinematic() {
               className="group relative px-12 py-4 bg-transparent border border-white/30 text-white hover:bg-white hover:text-black transition-all duration-500 tracking-wider text-sm"
               onClick={() => document.getElementById('works')?.scrollIntoView({ behavior: 'smooth' })}
             >
-              <span className="relative z-10">EXPLORE PORTFOLIO</span>
+              <span className="relative z-10">EXPLORE NOSSO PORTFÓLIO</span>
               <div className="absolute inset-0 bg-white transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></div>
             </motion.button>
           </motion.div>

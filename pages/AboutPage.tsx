@@ -7,9 +7,9 @@ import Counter from "@/app/utils/AnimatedCounter";
 export default function AboutPage() {
   const stats = [
     { number: "150", label: "Projetos Entregues", suffix: "+" },
-    { number: "50", label: "Clientes Premium", suffix: "+" },
-    { number: "25", label: "Países Alcançados", suffix: "+" },
-    { number: "8", label: "Anos de Experiência" }
+    { number: "30", label: "Clientes Premium", suffix: "+" },
+    { number: "5", label: "Países Alcançados", suffix: "+" },
+    { number: "7", label: "Anos de Experiência" }
   ];
 
   const services = [
@@ -24,9 +24,9 @@ export default function AboutPage() {
       features: ["HDR Professional", "Perspectiva Corrigida", "Iluminação Especializada", "Pós-produção Premium"]
     },
     {
-      title: "Tours Virtuais 360°",
-      description: "Experiências imersivas que permitem explorar cada espaço remotamente com qualidade fotorrealística.",
-      features: ["Resolução 8K", "Navegação Intuitiva", "Hotspots Interativos", "Integração VR"]
+      title: "Treinamento Cinematográfica",
+      description: "Transformamos conteúdos técnicos em vídeos dinâmicos e didáticos, alinhados à identidade da sua marca. Produzimos materiais para treinamentos, integração de equipes, segurança do trabalho e desenvolvimento profissional.",
+      features: ["Treinamentos comercias", "Treinamentos de criativos", "Captações manuais"]
     },
     {
       title: "Filmagem Aérea",
@@ -37,23 +37,11 @@ export default function AboutPage() {
 
   const team = [
     {
-      name: "Marco Venturi",
+      name: "Lucas Cardoso",
       role: "Diretor Criativo & Fundador",
-      description: "15 anos de experiência em produção audiovisual premium, especializado em imóveis de luxo.",
-      image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&crop=face"
+      description: "7 anos de experiência em produção audiovisual premium, especializado em imóveis de luxo.",
+      image: "/sobre-nos/foto-fundador.png"
     },
-    {
-      name: "Sofia Castellano",
-      role: "Diretora de Fotografia",
-      description: "Expert em fotografia arquitetural com portfolio internacional em resorts e propriedades exclusivas.",
-      image: "https://images.unsplash.com/photo-1494790108755-2616b612b786?w=400&h=400&fit=crop&crop=face"
-    },
-    {
-      name: "André Pilots",
-      role: "Especialista em Drones",
-      description: "Piloto certificado ANAC com experiência em filmagens aéreas para marcas de luxo.",
-      image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=400&fit=crop&crop=face"
-    }
   ];
 
   return (
@@ -78,14 +66,8 @@ export default function AboutPage() {
                 <span className="text-gray-500">Nós</span>
               </h1>
               <p className="text-xl text-gray-600 leading-relaxed mb-8">
-                A Venturi Visuals nasceu da paixão por transformar espaços em experiências visuais 
-                extraordinárias. Especializados em produções cinematográficas para imóveis de luxo, 
-                criamos conteúdo que vai além da documentação - contamos histórias.
-              </p>
-              <p className="text-lg text-gray-700 leading-relaxed">
-                Nossa abordagem combina técnicas cinematográficas de Hollywood com profundo 
-                conhecimento do mercado imobiliário premium, resultando em produções que elevam 
-                cada propriedade ao seu máximo potencial visual.
+                A Venturi Visuals é uma empresa especializada em transformar marcas em experiências visuais de alto impacto.
+                Há mais de cinco anos no mercado, unimos estética cinematográfica, estratégia e performance para elevar o valor percebido de cada cliente e posicionar marcas com autoridade.
               </p>
             </motion.div>
             
@@ -108,7 +90,7 @@ export default function AboutPage() {
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.6, delay: 0.8 }}
               >
-                <p className="text-2xl mb-1">8+</p>
+                <p className="text-2xl mb-1">7+</p>
                 <p className="text-sm text-gray-300">Anos de Excelência</p>
               </motion.div>
             </motion.div>
@@ -207,7 +189,7 @@ export default function AboutPage() {
             </p>
           </motion.div>
 
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-1 gap-8">
             {team.map((member, index) => (
               <motion.div
                 key={member.name}

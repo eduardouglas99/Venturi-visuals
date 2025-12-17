@@ -63,10 +63,10 @@ export function HorizontalShowcase() {
           className="text-center"
         >
           <h2 className="text-5xl md:text-7xl text-black font-light tracking-tight mb-4">
-            RECENT WORKS
+            TRABALHOS RECENTES
           </h2>
           <p className="text-lg text-gray-600 tracking-wide">
-            Premium real estate cinematography that sets new standards
+            Cinematografia imobiliária de alta qualidade que define novos padrões.
           </p>
         </motion.div>
       </div>

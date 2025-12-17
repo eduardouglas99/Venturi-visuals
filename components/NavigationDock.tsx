@@ -5,11 +5,11 @@ import { usePathname, useRouter } from 'next/navigation';
 import { useState, useEffect } from 'react';
 
 const navItems = [
-  { id: '/', label: 'Home', icon: '◉' },
-  { id: '/portfolio', label: 'Portfolio', icon: '⬒' },
-  { id: '/sobre', label: 'About', icon: '◐' },
-  { id: '/servicos', label: 'Services', icon: '◇' },
-  { id: '/contato', label: 'Contact', icon: '◈' }
+  { id: '/', label: 'Início', icon: '◉' },
+  { id: '/portfolio', label: 'Portfólio', icon: '⬒' },
+  { id: '/sobre', label: 'Sobre', icon: '◐' },
+  { id: '/servicos', label: 'Serviços', icon: '◇' },
+  { id: '/contato', label: 'Contato', icon: '◈' }
 ];
 
 export function NavigationDock() {

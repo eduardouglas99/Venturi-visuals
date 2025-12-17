@@ -29,18 +29,17 @@ export function ContactCTA() {
           className="mb-12"
         >
           <span className="text-gray-500 text-sm tracking-[0.3em] uppercase mb-4 block">
-            Ready to Elevate Your Property?
+            Pronto para elevar o nível do seu imóvel?
           </span>
           <h2 className="text-5xl md:text-7xl font-light tracking-tight leading-[0.9] mb-8">
-            LET'S CREATE
+            VAMOS CRIAR
             <br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-black to-gray-500">
-              SOMETHING EXTRAORDINARY
+              ALGO EXTRAORDINÁRIO
             </span>
           </h2>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed">
-            Transform your luxury property into a cinematic masterpiece that captivates, 
-            inspires, and drives exceptional results.
+            Transforme seu imóvel de luxo em uma obra-prima cinematográfica que cativa, inspira e gera resultados excepcionais.
           </p>
         </motion.div>
 
@@ -51,26 +50,29 @@ export function ContactCTA() {
           viewport={{ once: true }}
           className="space-y-8"
         >
-          <motion.button
+          <motion.a
             data-cursor="hover"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             onHoverStart={() => setIsHovered(true)}
             onHoverEnd={() => setIsHovered(false)}
-            className="group relative px-16 py-6 bg-black text-white hover:bg-gray-900 transition-all duration-500 tracking-wider text-lg overflow-hidden"
+            className="group relative inline-block px-16 py-6 bg-black text-white hover:bg-gray-900 transition-all duration-500 tracking-wider text-lg overflow-hidden"
+            href="https://api.whatsapp.com/send?phone=5521980963359&text=Ol%C3%A1%20*Venturi%20Visuals*!%20Gostaria%20de%20mais%20informa%C3%A7%C3%B5es%20sobre%20as%20grava%C3%A7%C3%B5es%20de%20alto%20padr%C3%A3o.%20Tenho%20interesse%20em%20elevar%20a%20comunica%C3%A7%C3%A3o%20da%20minha%20marca%20com%20produ%C3%A7%C3%B5es%20de%20excel%C3%AAncia."
+            target="_blank"
+            rel="noopener noreferrer"
           >
-            <span className="relative z-10">START YOUR PROJECT</span>
+            <span className="relative z-10">COMECE SEU PROJETO</span>
             <motion.div
               initial={{ x: "-100%" }}
               animate={{ x: isHovered ? "0%" : "-100%" }}
               transition={{ duration: 0.5 }}
               className="absolute inset-0 bg-gradient-to-r from-gray-800 to-black"
             />
-          </motion.button>
+          </motion.a>
 
           <div className="flex flex-col md:flex-row justify-center items-center space-y-4 md:space-y-0 md:space-x-12 text-gray-600">
             <motion.a
-              href="mailto:hello@venturivisuals.com"
+              href="mailto:contato@venturivisuals.com.br"
               whileHover={{ scale: 1.05 }}
               className="flex items-center space-x-3 group"
               data-cursor="hover"
@@ -80,7 +82,7 @@ export function ContactCTA() {
                   <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
                 </svg>
               </div>
-              <span className="tracking-wide">hello@venturivisuals.com</span>
+              <span className="tracking-wide">contato@venturivisuals.com.br</span>
             </motion.a>
 
             <motion.a
@@ -94,7 +96,7 @@ export function ContactCTA() {
                   <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
                 </svg>
               </div>
-              <span className="tracking-wide">+1 (212) 555-1234</span>
+              <span className="tracking-wide">+55 (21) 98096-3359</span>
             </motion.a>
           </div>
 
@@ -106,7 +108,7 @@ export function ContactCTA() {
             className="pt-8"
           >
             <p className="text-sm text-gray-500 tracking-wide">
-              Serving luxury properties in New York, Los Angeles, Miami, and beyond
+              Atendemos propriedades de luxo por todos os lugares do mundo.
             </p>
           </motion.div>
         </motion.div>

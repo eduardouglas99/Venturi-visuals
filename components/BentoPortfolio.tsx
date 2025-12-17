@@ -54,7 +54,7 @@ export function BentoPortfolio() {
           className="mb-16"
         >
           <h2 className="text-5xl md:text-7xl text-white font-light tracking-tight mb-4">
-            PORTFOLIO
+            PORTFÓLIO
           </h2>
           <div className="w-24 h-px bg-gradient-to-r from-white to-transparent"></div>
         </motion.div>
@@ -123,7 +123,7 @@ export function BentoPortfolio() {
             whileTap={{ scale: 0.95 }}
             className="group relative px-8 py-3 bg-transparent border border-white/30 text-white hover:bg-white hover:text-black transition-all duration-500 tracking-wider text-sm"
           >
-            <span className="relative z-10">VIEW ALL PROJECTS</span>
+            <span className="relative z-10">VER TODOS OS PROJETOS</span>
             <div className="absolute inset-0 bg-white transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></div>
           </motion.button>
         </motion.div>

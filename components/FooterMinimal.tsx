@@ -4,9 +4,10 @@ import { motion } from 'framer-motion';
 
 export function FooterMinimal() {
   const socialLinks = [
-    { name: 'Instagram', url: '#', icon: 'IG' },
-    { name: 'Vimeo', url: '#', icon: 'VM' },
-    { name: 'LinkedIn', url: '#', icon: 'LI' }
+    { name: 'Instagram', url: 'https://www.instagram.com/venturi_visuals/', icon: 'IG' },
+    // { name: 'Facebook', url: '#', icon: 'FB' },
+    // { name: 'Youtube', url: '#', icon: 'YT' },
+    // { name: 'Linkedin', url: '#', icon: 'IN' }
   ];
 
   return (
@@ -26,8 +27,8 @@ export function FooterMinimal() {
               VISUALS
             </div>
             <p className="text-white/60 leading-relaxed text-sm">
-              Cinematic excellence in luxury real estate marketing. 
-              Creating visual narratives that transcend expectations.
+              Excelência cinematográfica no marketing imobiliário de luxo.
+              Criando narrativas visuais que transcendem expectativas.
             </p>
           </motion.div>
 
@@ -38,27 +39,32 @@ export function FooterMinimal() {
             viewport={{ once: true }}
           >
             <h3 className="text-white/80 tracking-wider uppercase text-sm mb-6">
-              Services
+              Serviços
             </h3>
             <ul className="space-y-3 text-white/60 text-sm">
               <li>
                 <a href="/servicos" className="hover:text-white transition-colors duration-300" data-cursor="hover">
-                  Property Cinematography
+                  Produção de Fotos e Vídeos Profissionais
                 </a>
               </li>
               <li>
                 <a href="/servicos" className="hover:text-white transition-colors duration-300" data-cursor="hover">
-                  Architectural Photography
+                  Gestão de Mídias Sociais
                 </a>
               </li>
               <li>
                 <a href="/servicos" className="hover:text-white transition-colors duration-300" data-cursor="hover">
-                  Brand Content Creation
+                  Tráfego Pago e Estratégia de Performance
                 </a>
               </li>
               <li>
                 <a href="/servicos" className="hover:text-white transition-colors duration-300" data-cursor="hover">
-                  Virtual Tours
+                  Branding e Posicionamento de Marca
+                </a>
+              </li>
+              <li>
+                <a href="/servicos" className="hover:text-white transition-colors duration-300" data-cursor="hover">
+                  Consultoria de Comunicação Visual
                 </a>
               </li>
             </ul>
@@ -71,18 +77,25 @@ export function FooterMinimal() {
             viewport={{ once: true }}
           >
             <h3 className="text-white/80 tracking-wider uppercase text-sm mb-6">
-              Connect
+              Conectar
             </h3>
             <div className="space-y-4">
               <div className="text-white/60 text-sm">
-                hello@venturivisuals.com
+              <a href="mailto:contato@venturivisuals.com.br">
+                contato@venturivisuals.com.br
+              </a>
               </div>
               <div className="text-white/60 text-sm">
-                +1 (212) 555-1234
+              <a      
+                href="https://wa.me/5521980963359?text=Ol%C3%A1%20Venturi%20Visuals!%20Gostaria%20de%20mais%20informa%C3%A7%C3%B5es%20sobre%20as%20grava%C3%A7%C3%B5es%20de%20alto%20padr%C3%A3o.%0ATenho%20interesse%20em%20elevar%20a%20comunica%C3%A7%C3%A3o%20da%20minha%20marca%20com%20produ%C3%A7%C3%B5es%20de%20excel%C3%AAncia."
+                target="_blank">
+                +55 (21) 98096-3359
+              </a>
               </div>
               <div className="flex space-x-4 mt-6">
                 {socialLinks.map((social) => (
                   <motion.a
+                  target='_blank'
                     key={social.name}
                     href={social.url}
                     whileHover={{ scale: 1.1 }}
@@ -106,15 +119,12 @@ export function FooterMinimal() {
           className="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center"
         >
           <div className="text-white/40 text-xs tracking-wider mb-4 md:mb-0">
-            © { new Date().getFullYear() } VENTURI VISUALS. ALL RIGHTS RESERVED. <br />
-            Powered by <a rel="stylesheet" target='_blank' href="https://www.linkedin.com/in/eduardo-douglas/" >eduardouglas99</a>
+            © { new Date().getFullYear() } VENTURI VISUALS. TODOS OS DIREITOS RESERVADOS. <br />
+            Desenvolvido por <a rel="stylesheet" className="hover:text-white/70 transition-colors duration-300" target='_blank' href="https://www.linkedin.com/in/eduardo-douglas/" >eduardouglas99</a> | <a rel="stylesheet" className="hover:text-white/70 transition-colors duration-300" target='_blank' href="https://www.linkedin.com/in/cesarmousinho26/" >cesarmousinho26</a>
           </div>
           <div className="flex space-x-8 text-white/40 text-xs tracking-wider">
-            <a href="#" className="hover:text-white/70 transition-colors duration-300" data-cursor="hover">
-              PRIVACY POLICY
-            </a>
-            <a href="#" className="hover:text-white/70 transition-colors duration-300" data-cursor="hover">
-              TERMS OF SERVICE
+            <a href="/politica-de-privacidade" className="hover:text-white/70 transition-colors duration-300" data-cursor="hover">
+              POLÍTICA DE PRIVACIDADE
             </a>
           </div>
         </motion.div>

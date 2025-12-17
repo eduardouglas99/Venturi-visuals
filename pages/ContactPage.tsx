@@ -40,17 +40,17 @@ export default function ContactPage() {
   const contactInfo = [
     {
       title: "Telefone",
-      value: "+55 (11) 9 9999-9999",
+      value: "+55 (21) 98096-3359",
       icon: "📱"
     },
     {
       title: "Email",
-      value: "contato@venturivisuals.com",
+      value: "contato@venturivisuals.com.br",
       icon: "✉️"
     },
     {
       title: "Endereço",
-      value: "São Paulo, SP - Brasil",
+      value: "Escritório Neolink – Barra da Tijuca - RJ",
       icon: "📍"
     },
     {
@@ -78,21 +78,9 @@ export default function ContactPage() {
 
   const offices = [
     {
-      city: "São Paulo",
-      address: "Av. Paulista, 1000 - Bela Vista",
-      phone: "+55 (11) 9 9999-9999",
-      image: "https://images.unsplash.com/photo-1583422409516-2895a77efded?w=600&h=400&fit=crop"
-    },
-    {
       city: "Rio de Janeiro",
-      address: "Ipanema, Zona Sul",
+      address: "Escritório Neolink – Barra da Tijuca",
       phone: "+55 (21) 9 9999-9999",
-      image: "https://images.unsplash.com/photo-1544984503-7ad532c2c816?w=600&h=400&fit=crop"
-    },
-    {
-      city: "Miami",
-      address: "Brickell Avenue, Downtown",
-      phone: "+1 (305) 999-9999",
       image: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=600&h=400&fit=crop"
     }
   ];
@@ -185,10 +173,11 @@ export default function ContactPage() {
                     value={formData.phone}
                     onChange={handleInputChange}
                     className="w-full px-4 py-3 bg-white rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-black/10"
+                    required
                   />
                 </div>
 
-                <div className="grid md:grid-cols-2 gap-4">
+                <div>
                   <div>
                     <label className="block text-sm text-gray-600 mb-2">Tipo de Projeto</label>
                     <select
@@ -204,32 +193,6 @@ export default function ContactPage() {
                       ))}
                     </select>
                   </div>
-                  <div>
-                    <label className="block text-sm text-gray-600 mb-2">Orçamento</label>
-                    <select
-                      name="budget"
-                      value={formData.budget}
-                      onChange={handleInputChange}
-                      className="w-full px-4 py-3 bg-white rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-black/10"
-                    >
-                      <option value="">Selecionar</option>
-                      {budgetRanges.map((range) => (
-                        <option key={range} value={range}>{range}</option>
-                      ))}
-                    </select>
-                  </div>
-                </div>
-
-                <div>
-                  <label className="block text-sm text-gray-600 mb-2">Timeline Desejado</label>
-                  <input
-                    type="text"
-                    name="timeline"
-                    value={formData.timeline}
-                    onChange={handleInputChange}
-                    placeholder="Ex: Próximas 2 semanas"
-                    className="w-full px-4 py-3 bg-white rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-black/10"
-                  />
                 </div>
 
                 <div>
@@ -260,7 +223,7 @@ export default function ContactPage() {
       </motion.section>
 
       {/* Offices Section */}
-      <motion.section 
+      {/* <motion.section 
         className="px-6 mb-20"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
@@ -273,7 +236,7 @@ export default function ContactPage() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.8 }}
           >
-            <h2 className="text-4xl md:text-6xl mb-6">Nossos Escritórios</h2>
+            <h2 className="text-4xl md:text-6xl mb-6">Nosso Escritório</h2>
             <p className="text-xl text-gray-600 max-w-2xl mx-auto">
               Presença global para atender projetos em qualquer localização.
             </p>
@@ -303,7 +266,7 @@ export default function ContactPage() {
             ))}
           </div>
         </div>
-      </motion.section>
+      </motion.section> */}
 
       {/* FAQ Section */}
       <motion.section 
@@ -329,8 +292,8 @@ export default function ContactPage() {
                 answer: "Dependendo da complexidade, nossos projetos são entregues entre 5 a 14 dias úteis após a finalização da produção."
               },
               {
-                question: "Vocês trabalham em outras cidades além de São Paulo?",
-                answer: "Sim! Temos escritórios em São Paulo, Rio de Janeiro e Miami, e atendemos projetos em todo o Brasil e Estados Unidos."
+                question: "Vocês trabalham em outras cidades além do Rio de Janeiro?",
+                answer: "Sim! Atendemos projetos em todo o Brasil e no exterior."
               },
               {
                 question: "É possível acompanhar a produção remotamente?",
@@ -372,7 +335,7 @@ export default function ContactPage() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <motion.a
-                href="tel:+5511999999999"
+                href="tel:+5521972291971"
                 className="px-8 py-4 bg-white text-black rounded-full hover:bg-gray-100 transition-colors duration-300 inline-block"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
@@ -380,7 +343,8 @@ export default function ContactPage() {
                 Ligar Agora
               </motion.a>
               <motion.a
-                href="https://wa.me/5511999999999"
+                href="https://api.whatsapp.com/send?phone=5521980963359&text=Ol%C3%A1%20*Venturi%20Visuals*!%20Gostaria%20de%20mais%20informa%C3%A7%C3%B5es%20sobre%20as%20grava%C3%A7%C3%B5es%20de%20alto%20padr%C3%A3o.%20Tenho%20interesse%20em%20elevar%20a%20comunica%C3%A7%C3%A3o%20da%20minha%20marca%20com%20produ%C3%A7%C3%B5es%20de%20excel%C3%AAncia."
+                target="_blank"
                 className="px-8 py-4 border border-white/30 rounded-full hover:border-white/50 transition-colors duration-300 inline-block"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
