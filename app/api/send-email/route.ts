@@ -7,7 +7,7 @@ export async function POST(req: Request) {
     const html = contactEmailTemplate(body);
 
     await sendEmail({
-      to: 'process.env.SMTP_USER!',
+      to: process.env.SMTP_USER!,
       subject: "📩 Novo contato pelo site",
       html,
     });
