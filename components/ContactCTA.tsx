@@ -85,8 +85,7 @@ export function ContactCTA() {
               <span className="tracking-wide">contato@venturivisuals.com.br</span>
             </motion.a>
 
-            <motion.a
-              href="tel:+12125551234"
+            <motion.div
               whileHover={{ scale: 1.05 }}
               className="flex items-center space-x-3 group"
               data-cursor="hover"
@@ -97,13 +96,15 @@ export function ContactCTA() {
                 </svg>
               </div>
 
-              <a      
-                href="https://wa.me/5521980963359?text=Ol%C3%A1%20Venturi%20Visuals!%20Gostaria%20de%20mais%20informa%C3%A7%C3%B5es%20sobre%20as%20grava%C3%A7%C3%B5es%20de%20alto%20padr%C3%A3o.%0ATenho%20interesse%20em%20elevar%20a%20comunica%C3%A7%C3%A3o%20da%20minha%20marca%20com%20produ%C3%A7%C3%B5es%20de%20excel%C3%AAncia."
+              <a
+                href="https://wa.me/5521980963359?text=Ol%C3%A1%20Venturi%20Visuals!"
                 target="_blank"
-                className="tracking-wide">
+                rel="noopener noreferrer"
+                className="tracking-wide"
+              >
                 +55 (21) 98096-3359
               </a>
-            </motion.a>
+            </motion.div>
           </div>
 
           <motion.div
