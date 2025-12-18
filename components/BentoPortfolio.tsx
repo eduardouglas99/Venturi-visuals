@@ -9,7 +9,7 @@ const portfolioItems = [
     id: 1,
     title: "Condomínio Alphaville",
     subtitle: "Barra da Tijuca · Residencial em Condomínio Fechado",
-    className: "col-span-2 row-span-2",
+    className: "md:col-span-2 md:row-span-2",
     image: "/portfolio/condominio-alphaville.jpg",
     featured: true
   },
@@ -17,28 +17,28 @@ const portfolioItems = [
     id: 2,
     title: "Santa Mônica Jardins",
     subtitle: "Barra da Tijuca · R$22M",
-    className: "col-span-1 row-span-1",
+    className: "md:col-span-1 md:row-span-1",
     image: "/portfolio/santa-monica-jardins.jpg"
   },
   {
     id: 3,
     title: "Joá",
     subtitle: "Rio de Janeiro · R$75M",
-    className: "col-span-1 row-span-1",
+    className: "md:col-span-1 md:row-span-1",
     image: "/portfolio/joa.jpg"
   },
   {
     id: 4,
     title: "Alphaville",
     subtitle: "Residencial Contemporâneo",
-    className: "col-span-1 row-span-2",
+    className: "md:col-span-1 md:row-span-2",
     image: "/portfolio/alphaville.jpg"
   },
   {
     id: 5,
     title: "Condomínio Del Lago",
     subtitle: "Barra da Tijuca · Residência Waterfront",
-    className: "col-span-2 row-span-1",
+    className: "md:col-span-2 md:row-span-1",
     image: "/portfolio/del-lago.jpg"
   }
 ];
