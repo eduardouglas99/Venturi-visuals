@@ -1,8 +1,8 @@
-"use client"
+"use client";
 
-import { motion } from 'framer-motion';
-import { ImageWithFallback } from './figma/ImageWithFallback';
-import { usePathname, useRouter } from 'next/navigation';
+import { motion } from "framer-motion";
+import { ImageWithFallback } from "./figma/ImageWithFallback";
+import { usePathname, useRouter } from "next/navigation";
 
 const portfolioItems = [
   {
@@ -11,36 +11,36 @@ const portfolioItems = [
     subtitle: "Barra da Tijuca · Residencial em Condomínio Fechado",
     className: "md:col-span-2 md:row-span-2",
     image: "/portfolio/condominio-alphaville.jpg",
-    featured: true
+    featured: true,
   },
   {
     id: 2,
     title: "Santa Mônica Jardins",
     subtitle: "Barra da Tijuca · R$22M",
     className: "md:col-span-1 md:row-span-1",
-    image: "/portfolio/santa-monica-jardins.jpg"
+    image: "/portfolio/santa-monica-jardins.jpg",
   },
   {
     id: 3,
     title: "Joá",
     subtitle: "Rio de Janeiro · R$75M",
     className: "md:col-span-1 md:row-span-1",
-    image: "/portfolio/joa.jpg"
+    image: "/portfolio/joa.jpg",
   },
   {
     id: 4,
     title: "Alphaville",
     subtitle: "Residencial Contemporâneo",
     className: "md:col-span-1 md:row-span-2",
-    image: "/portfolio/alphaville.jpg"
+    image: "/portfolio/alphaville.jpg",
   },
   {
     id: 5,
     title: "Condomínio Del Lago",
     subtitle: "Barra da Tijuca · Residência Waterfront",
     className: "md:col-span-2 md:row-span-1",
-    image: "/portfolio/del-lago.jpg"
-  }
+    image: "/portfolio/del-lago.jpg",
+  },
 ];
 
 export function BentoPortfolio() {
@@ -62,15 +62,38 @@ export function BentoPortfolio() {
           <div className="w-24 h-px bg-gradient-to-r from-white to-transparent"></div>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4 h-[800px]">
+        <div
+          className="
+          grid
+          grid-cols-1
+          md:grid-cols-3
+          lg:grid-cols-4
+          gap-4
+          h-auto
+          md:h-[800px]
+        "
+        >
           {portfolioItems.map((item, index) => (
             <motion.div
               key={item.id}
-              initial={{ opacity: 0, scale: 0.8 }}
+              initial={{ opacity: 0, scale: 0.95 }}
               whileInView={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
               viewport={{ once: true }}
-              className={`group relative ${item.className} overflow-hidden rounded-2xl bg-black cursor-pointer`}
+              className={`
+                group
+                relative
+                overflow-hidden
+                rounded-2xl
+                bg-black
+                cursor-pointer
+
+                h-[220px]
+                sm:h-[260px]
+                md:h-auto
+
+                ${item.className}
+              `}
             >
               <ImageWithFallback
                 src={item.image}
@@ -81,7 +104,11 @@ export function BentoPortfolio() {
               <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent opacity-70 group-hover:opacity-90 transition-opacity duration-500" />
 
               <div className="absolute bottom-0 left-0 p-6 text-white z-10 transform translate-y-2 group-hover:translate-y-0 transition-transform duration-500">
-                <h3 className={`${item.featured ? 'text-2xl' : 'text-xl'} font-light tracking-wide mb-2`}>
+                <h3
+                  className={`${
+                    item.featured ? "text-2xl" : "text-xl"
+                  } font-light tracking-wide mb-2`}
+                >
                   {item.title}
                 </h3>
                 <p className="text-white/70 text-sm tracking-wider uppercase">
@@ -91,7 +118,10 @@ export function BentoPortfolio() {
 
               <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10">
                 <div className="w-8 h-8 border border-white/50 rounded-full flex items-center justify-center">
-                  <motion.div whileHover={{ rotate: 45 }} className="text-white text-lg">
+                  <motion.div
+                    whileHover={{ rotate: 45 }}
+                    className="text-white text-lg"
+                  >
                     ↗
                   </motion.div>
                 </div>
