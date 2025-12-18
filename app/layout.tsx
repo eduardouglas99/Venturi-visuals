@@ -15,7 +15,7 @@ export const metadata: Metadata = {
     siteName: "Venturi Visuals",
     images: [
       {
-        url: "/og-image.png",
+        url: "og-image/og-image.png",
         width: 1200,
         height: 630,
         alt: "Venturi Visuals",
