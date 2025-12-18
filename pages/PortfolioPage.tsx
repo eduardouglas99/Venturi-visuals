@@ -2,58 +2,59 @@
 
 import { motion } from "framer-motion";
 import { ImageWithFallback } from "../components/figma/ImageWithFallback";
-// import { unsplash_tool } from "unsplash";
 
 export default function PortfolioPage() {
   const portfolioItems = [
     {
       id: 1,
-      title: "Villa Sunset",
-      category: "Residencial de Luxo",
-      description: "Propriedade única com vista panorâmica para o oceano, capturada em golden hour.",
-      year: "2024",
-      services: ["Filmagem Aérea", "Tour Virtual", "Fotografia"],
-      featured: true
+      title: "Condomínio Alphaville",
+      category: "Residencial em Condomínio Fechado",
+      description:
+        "Imóvel de alto padrão localizado em condomínio Alphaville, com foco em segurança, amplitude dos ambientes e valorização do projeto arquitetônico.",
+      year: "2025",
+      services: ["Produção Cinematográfica", "Fotografia Arquitetural"],
+      image: "/portfolio/condominio-alphaville.jpg"
     },
     {
       id: 2,
-      title: "Penthouse Metropolitan",
-      category: "Comercial Premium",
-      description: "Espaço corporativo sofisticado no coração da cidade.",
-      year: "2024",
-      services: ["Produção Cinematográfica", "Fotografia Arquitetural"]
+      title: "Santa Mônica Jardins",
+      category: "Residencial de Alto Padrão",
+      description:
+        "Residência contemporânea em condomínio fechado na Barra da Tijuca, com arquitetura integrada à paisagem e destaque para áreas externas e iluminação natural.",
+      year: "2025",
+      services: ["Produção Cinematográfica", "Fotografia Arquitetural"],
+      featured: true,
+      image: "/portfolio/santa-monica-jardins.jpg"
     },
     {
       id: 3,
-      title: "Resort Paradise",
-      category: "Hospitalidade",
-      description: "Complexo resort com foco na experiência imersiva.",
-      year: "2023",
-      services: ["Filmagem Aérea", "Produção de Conteúdo", "Direção de Arte"]
+      title: "Joá",
+      category: "Residência de Luxo com Vista Mar",
+      description:
+        "Propriedade exclusiva no Joá, com vista panorâmica para o oceano, arquitetura autoral e integração total entre interiores sofisticados e a paisagem natural.",
+      year: "2025",
+      services: ["Produção Cinematográfica", "Fotografia Arquitetural"],
+      image: "/portfolio/joa.jpg"
     },
     {
       id: 4,
-      title: "Loft Industrial",
-      category: "Residencial Moderno",
-      description: "Transformação arquitetônica de espaço industrial em residência premium.",
-      year: "2023",
-      services: ["Tour Virtual", "Fotografia"]
+      title: "Alphaville",
+      category: "Residencial Contemporâneo",
+      description:
+        "Residência moderna em Alphaville, projetada com linhas limpas, ambientes amplos e soluções arquitetônicas voltadas ao conforto e à funcionalidade.",
+      year: "2025",
+      services: ["Produção Cinematográfica", "Fotografia Arquitetural"],
+      image: "/portfolio/alphaville.jpg"
     },
     {
       id: 5,
-      title: "Marina Luxury",
-      category: "Waterfront",
-      description: "Propriedade exclusiva à beira-mar com pier privativo.",
-      year: "2024",
-      services: ["Filmagem Aérea", "Fotografia Especializada"]
-    },
-    {
-      id: 6,
-      title: "Corporate Plaza",
-      category: "Comercial",
-      description: "Edifício corporativo icônico com arquitetura contemporânea.",
-      year: "2023",
-      services: ["Produção Cinematográfica", "Fotografia Corporativa"]
+      title: "Condomínio Del Lago",
+      category: "Residência Waterfront",
+      description:
+        "Imóvel de luxo à beira da lagoa, com acesso direto à água, áreas de lazer integradas e projeto arquitetônico voltado para a vida ao ar livre.",
+      year: "2025",
+      services: ["Produção Cinematográfica", "Fotografia Arquitetural"],
+      image: "/portfolio/del-lago.jpg"
     }
   ];
 
@@ -94,7 +95,9 @@ export default function PortfolioPage() {
         <div className="max-w-7xl mx-auto">
           <div className="bg-black rounded-3xl overflow-hidden relative h-[70vh]">
             <ImageWithFallback
-              src="https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=1600&h=900&fit=crop"
+              src="/portfolio/condominio-alphaville.jpg"
+              width={9500}
+              height={6333}
               alt="Villa Sunset - Projeto em Destaque"
               className="w-full h-full object-cover"
             />
@@ -109,12 +112,11 @@ export default function PortfolioPage() {
                 <span className="px-3 py-1 bg-white/20 backdrop-blur-sm rounded-full text-white text-sm">
                   Projeto em Destaque
                 </span>
-                <span className="text-white/80">2024</span>
+                <span className="text-white/80">2025</span>
               </div>
-              <h2 className="text-4xl md:text-6xl text-white mb-4">Villa Sunset</h2>
+              <h2 className="text-4xl md:text-6xl text-white mb-4">Condomínio Alphaville</h2>
               <p className="text-white/90 text-lg max-w-2xl mb-6">
-                Propriedade única com vista panorâmica para o oceano, capturada em golden hour 
-                através de técnicas cinematográficas avançadas e direção de arte impecável.
+                Imóvel de alto padrão localizado em condomínio Alphaville, com foco em segurança, amplitude dos ambientes e valorização do projeto arquitetônico.
               </p>
               <div className="flex flex-wrap gap-2">
                 {["Filmagem Aérea", "Tour Virtual", "Fotografia"].map((service) => (
@@ -148,15 +150,7 @@ export default function PortfolioPage() {
               >
                 <div className="bg-gray-50 rounded-2xl overflow-hidden mb-6 aspect-[4/3] relative">
                   <ImageWithFallback
-                    src={`https://images.unsplash.com/photo-${
-                      [
-                        "1600596397947-af57df90b8ce", // Penthouse
-                        "1571019613454-1cb2f99b2d8b", // Resort
-                        "1600210492486-724fe5c67fb0", // Loft
-                        "1600607687939-ce8a6c25118c", // Marina
-                        "1600566753899-2693f4ead3ba"  // Corporate
-                      ][index]
-                    }?w=800&h=600&fit=crop`}
+                    src={item.image}
                     alt={item.title}
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                   />

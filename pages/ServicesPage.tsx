@@ -45,7 +45,7 @@ export default function ServicesPage() {
         "Integração web/mobile",
         "Analytics detalhados"
       ],
-      image: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800&h=600&fit=crop"
+      image: "https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&h=600&fit=crop"
     },
     {
       title: "Branding e Posicionamento de Marca",
@@ -59,7 +59,7 @@ export default function ServicesPage() {
         "Seguros e licenças inclusos",
         "Edição e finalização"
       ],
-      image: "https://images.unsplash.com/photo-1473445830658-2bb67d015c6b?w=800&h=600&fit=crop"
+      image: "https://images.unsplash.com/photo-1511818966892-d7d671e672a2?w=800&h=600&fit=crop"
     },
     {
       title: "Consultoria de Comunicação Visual",
@@ -73,7 +73,7 @@ export default function ServicesPage() {
         "Seguros e licenças inclusos",
         "Edição e finalização"
       ],
-      image: "https://images.unsplash.com/photo-1473445830658-2bb67d015c6b?w=800&h=600&fit=crop"
+      image: "https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=800&h=600&fit=crop"
     }
   ];
 

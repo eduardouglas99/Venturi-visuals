@@ -79,7 +79,7 @@ export default function AboutPage() {
             >
               <div className="aspect-square rounded-3xl overflow-hidden">
                 <ImageWithFallback
-                  src="https://images.unsplash.com/photo-1600298881974-6be191ceeda1?w=800&h=800&fit=crop"
+                  src="/sobre-nos/interlagos.jpg"
                   alt="Venturi Visuals Studio"
                   className="w-full h-full object-cover"
                 />

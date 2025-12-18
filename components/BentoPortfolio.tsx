@@ -2,47 +2,50 @@
 
 import { motion } from 'framer-motion';
 import { ImageWithFallback } from './figma/ImageWithFallback';
+import { usePathname, useRouter } from 'next/navigation';
 
 const portfolioItems = [
   {
     id: 1,
-    title: "Manhattan Penthouse",
-    subtitle: "New York · $45M",
-    image: "https://images.unsplash.com/photo-1634412114581-6376e49ef8e2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtb2Rlcm4lMjBhcmNoaXRlY3R1cmUlMjBnbGFzcyUyMGJ1aWxkaW5nfGVufDF8fHx8MTc1ODU0ODk5MXww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
+    title: "Condomínio Alphaville",
+    subtitle: "Barra da Tijuca · Residencial em Condomínio Fechado",
     className: "col-span-2 row-span-2",
+    image: "/portfolio/condominio-alphaville.jpg",
     featured: true
   },
   {
     id: 2,
-    title: "Marble Suite",
-    subtitle: "Miami · Modern Luxury",
-    image: "https://images.unsplash.com/photo-1758384077439-8282cc397b34?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxsdXh1cnklMjBpbnRlcmlvciUyMG1hcmJsZSUyMGRldGFpbHN8ZW58MXx8fHwxNzU4NTk5NzMyfDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
-    className: "col-span-1 row-span-1"
+    title: "Santa Mônica Jardins",
+    subtitle: "Barra da Tijuca · R$22M",
+    className: "col-span-1 row-span-1",
+    image: "/portfolio/santa-monica-jardins.jpg"
   },
   {
     id: 3,
-    title: "Infinity Pool",
-    subtitle: "Los Angeles · $28M",
-    image: "https://images.unsplash.com/photo-1757924330358-a48d65664dac?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxyb29mdG9wJTIwaW5maW5pdHklMjBwb29sJTIwbHV4dXJ5fGVufDF8fHx8MTc1ODU5OTczM3ww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
-    className: "col-span-1 row-span-1"
+    title: "Joá",
+    subtitle: "Rio de Janeiro · R$75M",
+    className: "col-span-1 row-span-1",
+    image: "/portfolio/joa.jpg"
   },
   {
     id: 4,
-    title: "Spa Sanctuary",
-    subtitle: "Beverly Hills · Private Resort",
-    image: "https://images.unsplash.com/photo-1753605788101-04d1e653e74a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxsdXh1cnklMjBiYXRocm9vbSUyMHNwYSUyMGRlc2lnbnxlbnwxfHx8fDE3NTg1OTk3MzN8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
-    className: "col-span-1 row-span-2"
+    title: "Alphaville",
+    subtitle: "Residencial Contemporâneo",
+    className: "col-span-1 row-span-2",
+    image: "/portfolio/alphaville.jpg"
   },
   {
     id: 5,
-    title: "Wine Cellar",
-    subtitle: "Napa Valley · Collection",
-    image: "https://images.unsplash.com/photo-1709747820764-ce13895aff05?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtb2Rlcm4lMjB3aW5lJTIwY2VsbGFyJTIwbHV4dXJ5fGVufDF8fHx8MTc1ODU5OTczM3ww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
-    className: "col-span-2 row-span-1"
+    title: "Condomínio Del Lago",
+    subtitle: "Barra da Tijuca · Residência Waterfront",
+    className: "col-span-2 row-span-1",
+    image: "/portfolio/del-lago.jpg"
   }
 ];
 
 export function BentoPortfolio() {
+  const router = useRouter();
+
   return (
     <section id="works" className="min-h-screen bg-black py-20">
       <div className="max-w-7xl mx-auto px-8">
@@ -67,41 +70,28 @@ export function BentoPortfolio() {
               whileInView={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
               viewport={{ once: true }}
-              className={`group relative ${item.className} overflow-hidden bg-gray-900 cursor-pointer`}
-              data-cursor="hover"
+              className={`group relative ${item.className} overflow-hidden rounded-2xl bg-black cursor-pointer`}
             >
               <ImageWithFallback
                 src={item.image}
                 alt={item.title}
-                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
               />
-              
-              {/* Overlay */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-60 group-hover:opacity-80 transition-opacity duration-500"></div>
-              
-              {/* Content */}
-              <div className="absolute bottom-0 left-0 p-6 text-white transform translate-y-2 group-hover:translate-y-0 transition-transform duration-500">
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.2 }}
-                >
-                  <h3 className={`${item.featured ? 'text-2xl' : 'text-xl'} font-light tracking-wide mb-2`}>
-                    {item.title}
-                  </h3>
-                  <p className="text-white/70 text-sm tracking-wider uppercase">
-                    {item.subtitle}
-                  </p>
-                </motion.div>
+
+              <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent opacity-70 group-hover:opacity-90 transition-opacity duration-500" />
+
+              <div className="absolute bottom-0 left-0 p-6 text-white z-10 transform translate-y-2 group-hover:translate-y-0 transition-transform duration-500">
+                <h3 className={`${item.featured ? 'text-2xl' : 'text-xl'} font-light tracking-wide mb-2`}>
+                  {item.title}
+                </h3>
+                <p className="text-white/70 text-sm tracking-wider uppercase">
+                  {item.subtitle}
+                </p>
               </div>
 
-              {/* Hover Effect */}
-              <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+              <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10">
                 <div className="w-8 h-8 border border-white/50 rounded-full flex items-center justify-center">
-                  <motion.div
-                    whileHover={{ rotate: 45 }}
-                    className="text-white text-lg"
-                  >
+                  <motion.div whileHover={{ rotate: 45 }} className="text-white text-lg">
                     ↗
                   </motion.div>
                 </div>
@@ -121,6 +111,7 @@ export function BentoPortfolio() {
             data-cursor="hover"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
+            onClick={() => router.push("/portfolio")}
             className="group relative px-8 py-3 bg-transparent border border-white/30 text-white hover:bg-white hover:text-black transition-all duration-500 tracking-wider text-sm"
           >
             <span className="relative z-10">VER TODOS OS PROJETOS</span>

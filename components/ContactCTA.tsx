@@ -96,7 +96,13 @@ export function ContactCTA() {
                   <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
                 </svg>
               </div>
-              <span className="tracking-wide">+55 (21) 98096-3359</span>
+
+              <a      
+                href="https://wa.me/5521980963359?text=Ol%C3%A1%20Venturi%20Visuals!%20Gostaria%20de%20mais%20informa%C3%A7%C3%B5es%20sobre%20as%20grava%C3%A7%C3%B5es%20de%20alto%20padr%C3%A3o.%0ATenho%20interesse%20em%20elevar%20a%20comunica%C3%A7%C3%A3o%20da%20minha%20marca%20com%20produ%C3%A7%C3%B5es%20de%20excel%C3%AAncia."
+                target="_blank"
+                className="tracking-wide">
+                +55 (21) 98096-3359
+              </a>
             </motion.a>
           </div>
 
