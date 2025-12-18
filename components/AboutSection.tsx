@@ -100,15 +100,20 @@ export function AboutSection() {
                   >
                     <div className="w-12 h-12 bg-white/10 rounded-full"></div>
                   </motion.div>
-
-                  <video
-                    src="/videos/cutrim-maramar.mp4"
-                    autoPlay
-                    loop
-                    muted
-                    playsInline
-                    className="w-full h-full object-cover rounded-lg"
-                  />
+                    <video
+                      autoPlay
+                      loop
+                      muted
+                      playsInline
+                      preload="none"
+                      poster="https://res.cloudinary.com/dcuhjojmj/video/upload/so_0/maramar_uhdl3g.jpg"
+                      className="w-full h-full object-cover rounded-lg"
+                    >
+                      <source
+                        src="https://res.cloudinary.com/dcuhjojmj/video/upload/f_auto,q_auto/maramar_uhdl3g.mp4"
+                        type="video/mp4"
+                      />
+                    </video>
                 </div>
               </div>
             </div>
