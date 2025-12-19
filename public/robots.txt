@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://venturivisuals.com.br/sitemap.xml

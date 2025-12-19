@@ -87,9 +87,9 @@ export function FooterMinimal() {
               </div>
               <div className="text-white/60 text-sm">
               <a      
-                href="https://wa.me/5521980963359?text=Ol%C3%A1%20Venturi%20Visuals!%20Gostaria%20de%20mais%20informa%C3%A7%C3%B5es%20sobre%20as%20grava%C3%A7%C3%B5es%20de%20alto%20padr%C3%A3o.%0ATenho%20interesse%20em%20elevar%20a%20comunica%C3%A7%C3%A3o%20da%20minha%20marca%20com%20produ%C3%A7%C3%B5es%20de%20excel%C3%AAncia."
+                href="https://api.whatsapp.com/send?phone=5521974544332&text=Ol%C3%A1%20*Venturi%20Visuals*!%20Gostaria%20de%20mais%20informa%C3%A7%C3%B5es%20sobre%20as%20grava%C3%A7%C3%B5es%20de%20alto%20padr%C3%A3o.%20Tenho%20interesse%20em%20elevar%20a%20comunica%C3%A7%C3%A3o%20da%20minha%20marca%20com%20produ%C3%A7%C3%B5es%20de%20excel%C3%AAncia."
                 target="_blank">
-                +55 (21) 98096-3359
+                +55 (21) 97454-4332
               </a>
               </div>
               <div className="flex space-x-4 mt-6">

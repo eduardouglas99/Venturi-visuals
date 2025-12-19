@@ -11,11 +11,11 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Venturi Visuals - Produções Cinematográficas de Luxo",
     description: "Especializada em produções cinematográficas de imóveis de luxo e marcas exclusivas",
-    url: "https://venturi-visuals.vercel.app",
+    url: "https://venturivisuals.com.br",
     siteName: "Venturi Visuals",
     images: [
       {
-        url: "/og-image/og-image.png",
+        url: "https://venturivisuals.com.br/og-image/og-image.png",
         width: 1200,
         height: 630,
         alt: "Venturi Visuals",
