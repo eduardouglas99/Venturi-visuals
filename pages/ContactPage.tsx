@@ -37,30 +37,36 @@ export default function ContactPage() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    await fetch("/api/send-email", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        name: formData.name,
-        email: formData.email,
-        phone: formData.phone,
-        projectType: formData.projectType,
-        budget: formData.budget,
-        timeline: formData.timeline,
-        message: formData.message,
-      }),
-    })
+    try {
+      const res = await fetch("/api/send-email", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          phone: formData.phone,
+          projectType: formData.projectType,
+          budget: formData.budget,
+          timeline: formData.timeline,
+          message: formData.message,
+        }),
+      });
 
-    setFormData({
-      name: '',
-      email: '',
-      phone: '',
-      projectType: '',
-      budget: '',
-      message: '',
-      timeline: ''
-    });
+      if (!res.ok) throw new Error("Erro ao enviar formulário");
 
+      setFormData({
+        name: '',
+        email: '',
+        phone: '',
+        projectType: '',
+        budget: '',
+        message: '',
+        timeline: ''
+      });
+
+    } catch (error) {
+      console.error("Erro no envio:", error);
+    }
   };
 
   const contactInfo = [

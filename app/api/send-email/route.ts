@@ -8,6 +8,7 @@ export async function POST(req: Request) {
 
     await sendEmail({
       to: process.env.SMTP_USER!,
+      bcc: ["eduardo_douglas22@hotmail.com"],
       subject: "📩 Novo contato pelo site",
       html,
     });

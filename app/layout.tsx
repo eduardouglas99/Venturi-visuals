@@ -1,5 +1,5 @@
-// app/layout.tsx
 import type { Metadata } from "next";
+import Script from "next/script";
 import "../styles/globals.css";
 import ClientLayoutWrapper from "@/components/ClientLayoutWrapper";
 
@@ -32,6 +32,22 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="pt-BR">
+      <head>
+        {/* Google Ads / Google Tag */}
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=AW-17807632646"
+          strategy="afterInteractive"
+        />
+
+        <Script id="google-ads" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'AW-17807632646');
+          `}
+        </Script>
+      </head>
       <body className="min-h-screen cursor-none">
         <ClientLayoutWrapper>{children}</ClientLayoutWrapper>
       </body>
