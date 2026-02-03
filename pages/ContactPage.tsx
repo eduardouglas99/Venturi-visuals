@@ -2,6 +2,9 @@
 
 import { motion } from "framer-motion";
 import { useState } from "react";
+import PhoneInput from "react-phone-number-input";
+import "react-phone-number-input/style.css";
+import { isValidPhoneNumber } from "libphonenumber-js";
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({
@@ -14,10 +17,10 @@ export default function ContactPage() {
     timeline: "",
   });
 
-  const [phoneError, setPhoneError] = useState(false);
   const [status, setStatus] = useState<
     "idle" | "loading" | "success" | "error"
   >("idle");
+  const isValid = formData.phone ? isValidPhoneNumber(formData.phone) : false;
 
   const handleInputChange = (
     e: React.ChangeEvent<
@@ -31,11 +34,6 @@ export default function ContactPage() {
       [name]: value,
     }));
 
-    const isValidPhone = (phone: string) => /^\+?[0-9\s()-]{7,20}$/.test(phone);
-
-    if (name === "phone") {
-      setPhoneError(value.length > 0 && !isValidPhone(value));
-    }
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -175,124 +173,136 @@ export default function ContactPage() {
             >
               <h2 className="text-3xl mb-8">Solicitar Orçamento</h2>
 
-                {status === "success" ? (
-                  <motion.div
-                    initial={{ opacity: 0, scale: 0.95 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    className="text-center py-16 rounded-xl bg-[#f4f4f4] mt-[60px]"
-                  >
-                    <div className="text-5xl mb-6">✓</div>
-                    <h3 className="text-2xl mb-4">Solicitação enviada</h3>
-                    <p className="text-gray-600">
-                      Recebemos suas informações e retornaremos em até 24 horas.
-                    </p>
-
-                    <button
-                      onClick={() => setStatus("idle")}
-                      className="mt-6 text-sm text-gray-500 hover:text-black transition-colors"
-                    >
-                      Enviar nova solicitação
-                    </button>
-                  </motion.div>
-                ) : (
-              <form onSubmit={handleSubmit} className="space-y-6">
-                <div className="grid md:grid-cols-2 gap-4">
-                  <div>
-                    <label className="block text-sm text-gray-600 mb-2">
-                      Nome Completo
-                    </label>
-                    <input
-                      type="text"
-                      name="name"
-                      value={formData.name}
-                      onChange={handleInputChange}
-                      className="w-full px-4 py-3 bg-white rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-black/10"
-                      required
-                    />
-                  </div>
-                  <div>
-                    <label className="block text-sm text-gray-600 mb-2">
-                      Email
-                    </label>
-                    <input
-                      type="email"
-                      name="email"
-                      value={formData.email}
-                      onChange={handleInputChange}
-                      className="w-full px-4 py-3 bg-white rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-black/10"
-                      required
-                    />
-                  </div>
-                </div>
-
-                <div>
-                  <label className="block text-sm text-gray-600 mb-2">
-                    Telefone
-                  </label>
-                  <input
-                    type="tel"
-                    name="phone"
-                    placeholder="+55 11 91234 5678"
-                    value={formData.phone}
-                    onChange={handleInputChange}
-                    className={`w-full px-4 py-3 bg-white rounded-xl border 
-                        ${phoneError ? "border-red-500" : "border-gray-200"}`}
-                    required
-                  />
-                  {phoneError && (
-                    <p className="text-sm text-red-500 mt-1">
-                      Telefone inválido. Use o formato internacional.
-                    </p>
-                  )}
-                </div>
-
-                <div>
-                  <div>
-                    <label className="block text-sm text-gray-600 mb-2">
-                      Tipo de Projeto
-                    </label>
-                    <select
-                      name="projectType"
-                      value={formData.projectType}
-                      onChange={handleInputChange}
-                      className="w-full px-4 py-3 bg-white rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-black/10"
-                      required
-                    >
-                      <option value="">Selecionar</option>
-                      {projectTypes.map((type) => (
-                        <option key={type} value={type}>
-                          {type}
-                        </option>
-                      ))}
-                    </select>
-                  </div>
-                </div>
-
-                <div>
-                  <label className="block text-sm text-gray-600 mb-2">
-                    Detalhes do Projeto
-                  </label>
-                  <textarea
-                    name="message"
-                    value={formData.message}
-                    onChange={handleInputChange}
-                    rows={4}
-                    placeholder="Conte-nos mais sobre sua propriedade e objetivos..."
-                    className="w-full px-4 py-3 bg-white rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-black/10 resize-none"
-                    required
-                  />
-                </div>
-
-                <motion.button
-                  type="submit"
-                  disabled={status === "loading"}
-                  className="w-full py-4 bg-black text-white rounded-xl transition-all duration-300 disabled:opacity-70"
-                  whileHover={{ scale: status === "loading" ? 1 : 1.02 }}
-                  whileTap={{ scale: status === "loading" ? 1 : 0.98 }}
+              {status === "success" ? (
+                <motion.div
+                  initial={{ opacity: 0, scale: 0.95 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  className="text-center py-16 rounded-xl bg-[#f4f4f4] mt-[60px]"
                 >
-                  {status === "loading" ? "Enviando..." : "Enviar Solicitação"}
-                </motion.button>
-              </form>)}
+                  <div className="text-5xl mb-6">✓</div>
+                  <h3 className="text-2xl mb-4">Solicitação enviada</h3>
+                  <p className="text-gray-600">
+                    Recebemos suas informações e retornaremos em até 24 horas.
+                  </p>
+
+                  <button
+                    onClick={() => setStatus("idle")}
+                    className="mt-6 text-sm text-gray-500 hover:text-black transition-colors"
+                  >
+                    Enviar nova solicitação
+                  </button>
+                </motion.div>
+              ) : (
+                <form onSubmit={handleSubmit} className="space-y-6">
+                  <div className="grid md:grid-cols-2 gap-4">
+                    <div>
+                      <label className="block text-sm text-gray-600 mb-2">
+                        Nome Completo
+                      </label>
+                      <input
+                        type="text"
+                        name="name"
+                        value={formData.name}
+                        onChange={handleInputChange}
+                        className="w-full px-4 py-3 bg-white rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-black/10"
+                        required
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-sm text-gray-600 mb-2">
+                        Email
+                      </label>
+                      <input
+                        type="email"
+                        name="email"
+                        value={formData.email}
+                        onChange={handleInputChange}
+                        className="w-full px-4 py-3 bg-white rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-black/10"
+                        required
+                      />
+                    </div>
+                  </div>
+
+                  <div className="flex flex-col gap-2 phone-input-container">
+                    <label className="block text-sm text-gray-600 mb-2">
+                      Telefone
+                    </label>
+                    <PhoneInput
+                      name="cel"
+                      id="cel"
+                      international
+                      defaultCountry="BR"
+                      value={formData.phone}
+                      onChange={(value) =>
+                        setFormData((prev) => ({
+                          ...prev,
+                          phone: value || "",
+                        }))
+                      }
+                       className="w-full px-4 py-3 bg-white rounded-xl border border-gray-200 outline-none focus:outline-none focus:ring-2 focus:ring-black/10"
+                    />
+
+                    {!isValid && formData.phone && (
+                      <span className="text-red-500 text-sm">
+                        Número inválido
+                      </span>
+                    )}
+                  </div>
+
+                  <div>
+                    <div>
+                      <label className="block text-sm text-gray-600 mb-2">
+                        Tipo de Projeto
+                      </label>
+                      <select
+                        name="projectType"
+                        value={formData.projectType}
+                        onChange={handleInputChange}
+                        className="w-full px-4 py-3 bg-white rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-black/10"
+                        required
+                      >
+                        <option value="">Selecionar</option>
+                        {projectTypes.map((type) => (
+                          <option key={type} value={type}>
+                            {type}
+                          </option>
+                        ))}
+                      </select>
+                    </div>
+                  </div>
+
+                  <div>
+                    <label className="block text-sm text-gray-600 mb-2">
+                      Detalhes do Projeto
+                    </label>
+                    <textarea
+                      name="message"
+                      value={formData.message}
+                      onChange={handleInputChange}
+                      rows={4}
+                      placeholder="Conte-nos mais sobre sua propriedade e objetivos..."
+                      className="w-full px-4 py-3 bg-white rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-black/10 resize-none"
+                      required
+                    />
+                  </div>
+
+                  <motion.button
+                    type="submit"
+                    disabled={
+                      status === "loading" ||
+                      !formData.phone ||
+                      !isValidPhoneNumber(formData.phone)
+                    }
+                    className="w-full py-4 bg-black text-white rounded-xl transition-all duration-300 disabled:opacity-70"
+                    whileHover={{ scale: status === "loading" ? 1 : 1.02 }}
+                    whileTap={{ scale: status === "loading" ? 1 : 0.98 }}
+                  >
+                    {status === "loading"
+                      ? "Enviando..."
+                      : "Enviar Solicitação"}
+                  </motion.button>
+                </form>
+              )}
             </motion.div>
           </div>
         </div>
