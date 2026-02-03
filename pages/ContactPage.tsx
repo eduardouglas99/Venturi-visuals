@@ -1,33 +1,37 @@
-"use client"
+"use client";
 
 import { motion } from "framer-motion";
 import { useState } from "react";
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    projectType: '',
-    budget: '',
-    message: '',
-    timeline: ''
+    name: "",
+    email: "",
+    phone: "",
+    projectType: "",
+    budget: "",
+    message: "",
+    timeline: "",
   });
 
   const [phoneError, setPhoneError] = useState(false);
+  const [status, setStatus] = useState<
+    "idle" | "loading" | "success" | "error"
+  >("idle");
 
   const handleInputChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
+    e: React.ChangeEvent<
+      HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
+    >,
   ) => {
     const { name, value } = e.target;
 
-    setFormData(prev => ({
+    setFormData((prev) => ({
       ...prev,
-      [name]: value
+      [name]: value,
     }));
 
-    const isValidPhone = (phone: string) =>
-    /^\+?[0-9\s()-]{7,20}$/.test(phone);
+    const isValidPhone = (phone: string) => /^\+?[0-9\s()-]{7,20}$/.test(phone);
 
     if (name === "phone") {
       setPhoneError(value.length > 0 && !isValidPhone(value));
@@ -37,34 +41,30 @@ export default function ContactPage() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
+    setStatus("loading");
+
     try {
       const res = await fetch("/api/send-email", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          name: formData.name,
-          email: formData.email,
-          phone: formData.phone,
-          projectType: formData.projectType,
-          budget: formData.budget,
-          timeline: formData.timeline,
-          message: formData.message,
-        }),
+        body: JSON.stringify(formData),
       });
 
       if (!res.ok) throw new Error("Erro ao enviar formulário");
 
       setFormData({
-        name: '',
-        email: '',
-        phone: '',
-        projectType: '',
-        budget: '',
-        message: '',
-        timeline: ''
+        name: "",
+        email: "",
+        phone: "",
+        projectType: "",
+        budget: "",
+        message: "",
+        timeline: "",
       });
 
+      setStatus("success");
     } catch (error) {
+      setStatus("error");
       console.error("Erro no envio:", error);
     }
   };
@@ -73,23 +73,23 @@ export default function ContactPage() {
     {
       title: "Telefone",
       value: "+55 (21) 97454-4332",
-      icon: "📱"
+      icon: "📱",
     },
     {
       title: "Email",
       value: "contato@venturivisuals.com.br",
-      icon: "✉️"
+      icon: "✉️",
     },
     {
       title: "Endereço",
       value: "Escritório Neolink – Barra da Tijuca - RJ",
-      icon: "📍"
+      icon: "📍",
     },
     {
       title: "Horário",
       value: "Seg-Sex: 9h às 18h",
-      icon: "⏰"
-    }
+      icon: "⏰",
+    },
   ];
 
   const projectTypes = [
@@ -98,14 +98,14 @@ export default function ContactPage() {
     "Resort / Hospitalidade",
     "Desenvolvimento Imobiliário",
     "Marca / Corporativo",
-    "Outro"
+    "Outro",
   ];
 
   const budgetRanges = [
     "R$ 5.000 - R$ 10.000",
     "R$ 10.000 - R$ 20.000",
     "R$ 20.000 - R$ 50.000",
-    "R$ 50.000+"
+    "R$ 50.000+",
   ];
 
   const offices = [
@@ -113,14 +113,15 @@ export default function ContactPage() {
       city: "Rio de Janeiro",
       address: "Escritório Neolink – Barra da Tijuca",
       phone: "+55 (21) 9 9999-9999",
-      image: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=600&h=400&fit=crop"
-    }
+      image:
+        "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=600&h=400&fit=crop",
+    },
   ];
 
   return (
     <div className="pt-24 pb-16">
       {/* Hero Section */}
-      <motion.section 
+      <motion.section
         className="px-6 mb-20"
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
@@ -139,10 +140,11 @@ export default function ContactPage() {
                 <span className="text-gray-500">Conversar</span>
               </h1>
               <p className="text-xl text-gray-600 leading-relaxed mb-8">
-                Pronto para transformar sua propriedade em uma experiência visual extraordinária? 
-                Entre em contato e vamos criar algo memorável juntos.
+                Pronto para transformar sua propriedade em uma experiência
+                visual extraordinária? Entre em contato e vamos criar algo
+                memorável juntos.
               </p>
-              
+
               <div className="space-y-6">
                 {contactInfo.map((info, index) => (
                   <motion.div
@@ -154,7 +156,9 @@ export default function ContactPage() {
                   >
                     <div className="text-2xl">{info.icon}</div>
                     <div>
-                      <p className="text-gray-600 text-sm uppercase tracking-wider">{info.title}</p>
+                      <p className="text-gray-600 text-sm uppercase tracking-wider">
+                        {info.title}
+                      </p>
                       <p className="text-lg">{info.value}</p>
                     </div>
                   </motion.div>
@@ -170,11 +174,33 @@ export default function ContactPage() {
               transition={{ duration: 0.8, delay: 0.4 }}
             >
               <h2 className="text-3xl mb-8">Solicitar Orçamento</h2>
-              
+
+                {status === "success" ? (
+                  <motion.div
+                    initial={{ opacity: 0, scale: 0.95 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    className="text-center py-16 rounded-xl bg-[#f4f4f4] mt-[60px]"
+                  >
+                    <div className="text-5xl mb-6">✓</div>
+                    <h3 className="text-2xl mb-4">Solicitação enviada</h3>
+                    <p className="text-gray-600">
+                      Recebemos suas informações e retornaremos em até 24 horas.
+                    </p>
+
+                    <button
+                      onClick={() => setStatus("idle")}
+                      className="mt-6 text-sm text-gray-500 hover:text-black transition-colors"
+                    >
+                      Enviar nova solicitação
+                    </button>
+                  </motion.div>
+                ) : (
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid md:grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-sm text-gray-600 mb-2">Nome Completo</label>
+                    <label className="block text-sm text-gray-600 mb-2">
+                      Nome Completo
+                    </label>
                     <input
                       type="text"
                       name="name"
@@ -185,7 +211,9 @@ export default function ContactPage() {
                     />
                   </div>
                   <div>
-                    <label className="block text-sm text-gray-600 mb-2">Email</label>
+                    <label className="block text-sm text-gray-600 mb-2">
+                      Email
+                    </label>
                     <input
                       type="email"
                       name="email"
@@ -198,27 +226,31 @@ export default function ContactPage() {
                 </div>
 
                 <div>
-                  <label className="block text-sm text-gray-600 mb-2">Telefone</label>
-                    <input
-                      type="tel"
-                      name="phone"
-                      placeholder="+55 11 91234 5678"
-                      value={formData.phone}
-                      onChange={handleInputChange}
-                      className={`w-full px-4 py-3 bg-white rounded-xl border 
+                  <label className="block text-sm text-gray-600 mb-2">
+                    Telefone
+                  </label>
+                  <input
+                    type="tel"
+                    name="phone"
+                    placeholder="+55 11 91234 5678"
+                    value={formData.phone}
+                    onChange={handleInputChange}
+                    className={`w-full px-4 py-3 bg-white rounded-xl border 
                         ${phoneError ? "border-red-500" : "border-gray-200"}`}
-                      required
-                    />
-                    {phoneError && (
-                      <p className="text-sm text-red-500 mt-1">
-                        Telefone inválido. Use o formato internacional.
-                      </p>
-                    )}
+                    required
+                  />
+                  {phoneError && (
+                    <p className="text-sm text-red-500 mt-1">
+                      Telefone inválido. Use o formato internacional.
+                    </p>
+                  )}
                 </div>
 
                 <div>
                   <div>
-                    <label className="block text-sm text-gray-600 mb-2">Tipo de Projeto</label>
+                    <label className="block text-sm text-gray-600 mb-2">
+                      Tipo de Projeto
+                    </label>
                     <select
                       name="projectType"
                       value={formData.projectType}
@@ -228,14 +260,18 @@ export default function ContactPage() {
                     >
                       <option value="">Selecionar</option>
                       {projectTypes.map((type) => (
-                        <option key={type} value={type}>{type}</option>
+                        <option key={type} value={type}>
+                          {type}
+                        </option>
                       ))}
                     </select>
                   </div>
                 </div>
 
                 <div>
-                  <label className="block text-sm text-gray-600 mb-2">Detalhes do Projeto</label>
+                  <label className="block text-sm text-gray-600 mb-2">
+                    Detalhes do Projeto
+                  </label>
                   <textarea
                     name="message"
                     value={formData.message}
@@ -249,13 +285,14 @@ export default function ContactPage() {
 
                 <motion.button
                   type="submit"
-                  className="w-full py-4 bg-black text-white rounded-xl hover:bg-gray-800 transition-colors duration-300"
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
+                  disabled={status === "loading"}
+                  className="w-full py-4 bg-black text-white rounded-xl transition-all duration-300 disabled:opacity-70"
+                  whileHover={{ scale: status === "loading" ? 1 : 1.02 }}
+                  whileTap={{ scale: status === "loading" ? 1 : 0.98 }}
                 >
-                  Enviar Solicitação
+                  {status === "loading" ? "Enviando..." : "Enviar Solicitação"}
                 </motion.button>
-              </form>
+              </form>)}
             </motion.div>
           </div>
         </div>
@@ -308,14 +345,14 @@ export default function ContactPage() {
       </motion.section> */}
 
       {/* FAQ Section */}
-      <motion.section 
+      <motion.section
         className="px-6 mb-20"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 1, delay: 1.4 }}
       >
         <div className="max-w-4xl mx-auto">
-          <motion.div 
+          <motion.div
             className="text-center mb-16"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -328,20 +365,25 @@ export default function ContactPage() {
             {[
               {
                 question: "Qual é o prazo típico para entrega de um projeto?",
-                answer: "Dependendo da complexidade, nossos projetos são entregues entre 5 a 14 dias úteis após a finalização da produção."
+                answer:
+                  "Dependendo da complexidade, nossos projetos são entregues entre 5 a 14 dias úteis após a finalização da produção.",
               },
               {
-                question: "Vocês trabalham em outras cidades além do Rio de Janeiro?",
-                answer: "Sim! Atendemos projetos em todo o Brasil e no exterior."
+                question:
+                  "Vocês trabalham em outras cidades além do Rio de Janeiro?",
+                answer:
+                  "Sim! Atendemos projetos em todo o Brasil e no exterior.",
               },
               {
                 question: "É possível acompanhar a produção remotamente?",
-                answer: "Absolutamente. Enviamos updates regulares, preview das filmagens e mantemos comunicação constante durante todo o processo."
+                answer:
+                  "Absolutamente. Enviamos updates regulares, preview das filmagens e mantemos comunicação constante durante todo o processo.",
               },
               {
                 question: "Qual equipamento utilizam nas produções?",
-                answer: "Utilizamos equipamentos cinema de última geração: câmeras 8K, lentes prime profissionais, drones certificados e sistemas de estabilização avançados."
-              }
+                answer:
+                  "Utilizamos equipamentos cinema de última geração: câmeras 8K, lentes prime profissionais, drones certificados e sistemas de estabilização avançados.",
+              },
             ].map((faq, index) => (
               <motion.div
                 key={index}
@@ -359,7 +401,7 @@ export default function ContactPage() {
       </motion.section>
 
       {/* Emergency Contact */}
-      <motion.section 
+      <motion.section
         className="px-6"
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
@@ -369,8 +411,8 @@ export default function ContactPage() {
           <div className="bg-black text-white rounded-3xl p-12">
             <h2 className="text-4xl md:text-5xl mb-6">Projeto Urgente?</h2>
             <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
-              Para projetos com timeline apertado, entre em contato direto conosco. 
-              Temos soluções express disponíveis.
+              Para projetos com timeline apertado, entre em contato direto
+              conosco. Temos soluções express disponíveis.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <motion.a
